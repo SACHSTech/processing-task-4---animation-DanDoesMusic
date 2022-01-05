@@ -2,52 +2,73 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
 
-
-  /**
-   * state global variables
-   *  
-   * */ 
-  public float circleY = -50;
-
-	
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
   public void settings() {
-	  // put your size call here
-    size(200, 200);
+    size(700,400);
+
   }
 
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
-  public void setup() {
-    background(210, 255, 173);
-  }
+    float sky1 = 183;
+    float sky2 = 8;
+    float sky3 = 255;
 
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
+
+    float Day = 500;
+
+
+    float Night = 1000;
+ 
+
   public void draw() {
-	  
-    // clear out old frames
-    background(32);
 
-    // draw current frame based on state
-    ellipse(100, circleY, 50, 50);
-  
-    // modify state
-    circleY = circleY + 1;
-  
-    // reset state
-    if(circleY > height+50) {
-      circleY = 0;
+    background(sky1,sky2,sky3);
+    sky1 = sky1 - 1;
+    sky2 = sky2 - 1;
+    sky3 = sky3 - 1;
+
+
+    fill(255, 255, 0);
+    ellipse(Day,75,80,80);
+    Day = Day - 2;
+
+    
+    fill(255);
+    ellipse(Night,75,80,80);
+    Night = Night - 2;
+
+
+    fill(107,208,76);
+    rect(0,250,700,400);
+
+
+    fill(32);
+    rect(80,220,95,40);
+        fill(255,115,15);
+triangle(85, 220, 230, 80, 144, 200);
+
+
+    if (Night < 0) {
+      Day = 500;
+
+      Day = Day - 2;
+
+      
+      Night = 100;
+      
+      Night = Night - 2;
+      
+      sky1 = 183;
+      
+      sky2 = 8;
+      
+      sky3 = 235;
+      
+      sky1 = sky1 - 1;
+      
+      sky2 = sky2 - 1;
+      
+      sky3 = sky3 - 1;
     }
+    
   }
-  
-  // define other methods down here.
-
 
 }
